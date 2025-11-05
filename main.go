@@ -9,6 +9,7 @@ import (
 func main(){
 	args := os.Args[1:]
 	var filePath string
+	lineCounts := 0
 	if len(args) == 0 {
 		for {
 			fmt.Println("Kindly enter a valid file path :")
@@ -36,10 +37,14 @@ func main(){
 	for scanner.Scan() {
 		line := scanner.Text()
 		fmt.Println(line)
+		lineCounts ++
 	}
 
 	if err := scanner.Err(); err != nil {
 		fmt.Println("Error reading lines : ",err)
 	}
+
+	fmt.Println("-------------------------------------------------------------------------------------------------")
+	fmt.Println("Total Lines: ",lineCounts)
 
 }
