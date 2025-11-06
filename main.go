@@ -35,9 +35,9 @@ func main(){
 	scanner := bufio.NewScanner(file)
 
 	for scanner.Scan() {
-		line := scanner.Text()
-		fmt.Println(line)
 		lineCounts ++
+		line := scanner.Text()
+		fmt.Printf("\033[90m%d\033[0m %s\n", lineCounts, line)
 	}
 
 	if err := scanner.Err(); err != nil {
